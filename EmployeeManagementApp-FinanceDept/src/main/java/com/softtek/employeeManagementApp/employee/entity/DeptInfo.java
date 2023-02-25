@@ -1,0 +1,38 @@
+package com.softtek.employeeManagementApp.employee.entity;
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+public class DeptInfo {
+	
+	@Id
+	private Integer deptno;
+
+	private String deptName;
+
+	@OneToMany(targetEntity = Employee.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "DEPARTMENT_NO", referencedColumnName = "DEPTNO")
+	private List<Employee> employee;
+
+	private Double deptBgBal;
+
+	
+	
+	@Override
+	public String toString() {
+		return "DeptInfo [deptno=" + deptno + ", deptName=" + deptName + ", deptBgBal=" + deptBgBal + "]";
+	}
+
+}

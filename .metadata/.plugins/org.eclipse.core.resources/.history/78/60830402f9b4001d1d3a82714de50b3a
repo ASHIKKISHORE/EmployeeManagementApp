@@ -1,0 +1,47 @@
+package com.softtek.employeeManagementApp.employee.entity;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.softtek.employeeManagementApp.finance.entity.EmployeeDeduction;
+import com.softtek.employeeManagementApp.finance.entity.EmployeeEarning;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Table(name = "employee_table")
+@Setter
+@Getter
+public class Employee {
+	@Id
+	@GeneratedValue
+	private Integer empid;
+
+	@ManyToOne(targetEntity = DeptInfo.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "DEPARTMENT_NO", referencedColumnName = "DEPTNO")
+	private DeptInfo deptInfo;
+
+	private String ename;
+
+	@ManyToOne(targetEntity = ProjInfo.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "PROJECT_ID", referencedColumnName = "PROJID")
+	private ProjInfo projInfo;
+	
+	private EmployeeEarning empEarn;
+	
+	private EmployeeDeduction empDeduct;
+
+	@Override
+	public String toString() {
+		return "Employee [empid=" + empid + ", deptInfo=" + deptInfo + ", ename=" + ename + ", projInfo=" + projInfo
+				+ ", empEarn=" + empEarn + ", empDeduct=" + empDeduct + "]";
+	}
+
+}

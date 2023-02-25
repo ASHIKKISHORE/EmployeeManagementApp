@@ -1,0 +1,31 @@
+package com.softtek.employeeManagementApp.finance.entity;
+
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Embeddable
+@Table(name = "employee_deduction_table")
+@Setter
+@Getter
+@NoArgsConstructor
+public class EmployeeDeduction {
+
+	@Column(name = "provident_fund")
+	private Double pf;
+
+	@Column(name = "income_tax")
+	private Double incomeTax;
+
+	private Double gratuity;
+
+	@Override
+	public String toString() {
+		return "EmployeeDeduction [ pf=" + pf + ", incomeTax=" + incomeTax + ", gratuity=" + gratuity + "]";
+	}
+
+}

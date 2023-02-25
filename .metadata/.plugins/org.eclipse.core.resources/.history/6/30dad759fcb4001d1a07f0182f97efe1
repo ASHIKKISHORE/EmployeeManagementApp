@@ -1,0 +1,33 @@
+package com.softtek.employeeManagementApp.finance.model;
+
+import java.util.Date;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.softtek.employeeManagementApp.employee.entity.Employee;
+
+import lombok.Data;
+
+@Entity
+@Data
+public class Transaction {
+	@Id
+	@GeneratedValue
+	private Integer transId;
+
+	@ManyToOne(targetEntity = com.softtek.employeeManagementApp.employee.entity.Employee.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPID")
+	private Employee employee;
+
+	private Double transAmt;
+	private String transType;
+	private String transReason;
+	private Date date;
+	private Boolean isApproved;// transaction Status
+}

@@ -1,0 +1,31 @@
+package com.softtek.employeeManagementApp.finance.service;
+
+import com.softtek.employeeManagementApp.employee.entity.DeptInfo;
+import com.softtek.employeeManagementApp.employee.entity.Employee;
+import com.softtek.employeeManagementApp.employee.entity.ProjInfo;
+import com.softtek.employeeManagementApp.finance.entity.EmployeeDeduction;
+import com.softtek.employeeManagementApp.finance.entity.EmployeeEarning;
+import com.softtek.employeeManagementApp.finance.entity.InfraExp;
+import com.softtek.employeeManagementApp.finance.entity.Transaction;
+
+public interface IEmployeeManagementFinanceService {
+
+	public String saveEmployeeDetails(Employee employee);
+
+	public String saveDepartmentDetails(DeptInfo deptInfo);
+
+	public String saveProjectDetails(ProjInfo projInfo);
+
+	public String saveTransactionDetails(Transaction transaction);
+
+	public String saveInfraExpDetails(InfraExp infraExp);
+
+	public EmployeeEarning employeeEarningsInfo();
+
+	public EmployeeDeduction employeeDeductionsInfo();
+
+	public Boolean employeeAttendanceValidation(Employee employee);
+	
+	
+
+}

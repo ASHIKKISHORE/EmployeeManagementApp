@@ -1,0 +1,10 @@
+package com.softtek.employeeManagementApp.finance.model;
+
+import lombok.Data;
+
+@Data
+public class DepartmentBudget {
+	private Double adminBudgetBal;
+	private Double hrBudgetBal;
+	private Double DigitalBudgetBal;
+}

@@ -1,0 +1,20 @@
+package com.softtek.employeeManagementApp.finance.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import lombok.Data;
+
+@Entity
+@Data
+public class InfraExp {
+	
+	@Id
+	@GeneratedValue
+	private Integer infraExpId;
+	
+	private Double laptopExp;
+	private Double deskExp;
+	private Double chairExp;
+}
